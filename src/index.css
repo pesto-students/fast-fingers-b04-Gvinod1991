@@ -20,6 +20,12 @@ body::before{
   left: 0;
   opacity: 0.9;
   background:linear-gradient(to bottom, #063c47, #000000);
+  
+}
+@media screen and (max-width:540px){
+  body::before{
+    height: 190%;
+  }
 }
 
 code {
