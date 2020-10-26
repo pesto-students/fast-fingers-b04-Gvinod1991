@@ -1,0 +1,63 @@
+.header-container{
+    margin-bottom:40px;
+    .player-name{
+        font-family: Breamcatcher;
+        font-size: 2rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ff5155;
+        img{
+            width: 30px;
+            margin:0 5px;
+        }
+    }
+    
+    .game-name{
+        font-family: LaserCorpsGradient;
+        font-size: 2rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ff5155;
+    }
+    .game-level{
+        font-family: Breamcatcher;
+        font-size: 2rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ff5155;
+        img{
+            width: 30px;
+            margin:0 5px;
+        }
+    }
+    .score{
+        font-family: Breamcatcher;
+        font-size: 2rem;
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ff5155;
+    }
+    @media screen and (max-width:540px) {
+        .custom-row{
+            display: flex;
+            flex-direction: row-reverse;
+        } 
+    }
+    
+}
