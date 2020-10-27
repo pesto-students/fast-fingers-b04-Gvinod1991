@@ -92,7 +92,7 @@ class PlayGame extends Component {
         let { wordsForGameLevel, randomWord, difficultyFactor, coloredWord } = this.state;
         //Coloring the word
         let regExp = new RegExp(value);
-        coloredWord=randomWord.replace(regExp,`<span class="matched">${value}</span>`);
+        coloredWord = randomWord.replace(regExp, `<span class="matched">${value}</span>`);
 
         if (value === randomWord) {
             //Increase difficulty factor by 0.01
@@ -108,9 +108,9 @@ class PlayGame extends Component {
             } else if (difficultyFactor === 2) {
                 this.setState({ gameLevel: 'hard' }, () => this.setInStorage('hard'));
             }
-            this.setState({ randomWord, timeLimit, difficultyFactor, inputWord: "" ,coloredWord:false});
+            this.setState({ randomWord, timeLimit, difficultyFactor, inputWord: "", coloredWord: false });
         } else {
-            this.setState({ inputWord: value,coloredWord });
+            this.setState({ inputWord: value, coloredWord });
         }
     }
     //Update game level to session storage
@@ -119,8 +119,8 @@ class PlayGame extends Component {
     }
     //Timeout function to show player as game over
     gameOver = () => {
-        const {score,formattedScore}=this.state;
-        this.saveScoreAndGameName(score,formattedScore);
+        const { score, formattedScore } = this.state;
+        this.saveScoreAndGameName(score, formattedScore);
         this.setState({ gameOverStatus: true });
         clearInterval(this.state.scoreTimerInterval);
     }
@@ -128,7 +128,7 @@ class PlayGame extends Component {
     playAgain = () => {
         this.setState({
             gameOverStatus: false, inputWord: "",
-            score: 0, formattedScore: '00:00',coloredWord:false
+            score: 0, formattedScore: '00:00', coloredWord: false
         });
         this.prepareGameToPlay();
         this.setScoreTimerInterval();
@@ -158,36 +158,42 @@ class PlayGame extends Component {
         return `${minutes}:${seconds}`;
     }
     //Save the game name and scores into session storage
-    saveScoreAndGameName=(score,formattedScore)=>{
-        let savedScoreAndGameList=window.sessionStorage.getItem('scoreBoard');
-        savedScoreAndGameList=savedScoreAndGameList ? JSON.parse(savedScoreAndGameList): null;
+    saveScoreAndGameName = (score, formattedScore) => {
+        let savedScoreAndGameList = window.sessionStorage.getItem('scoreBoard');
+        savedScoreAndGameList = savedScoreAndGameList ? JSON.parse(savedScoreAndGameList) : null;
         let gameName;
-        if(savedScoreAndGameList && savedScoreAndGameList.length >0){
-            gameName=`Game ${savedScoreAndGameList.length+1}`;
-            savedScoreAndGameList.push({formattedScore,score,name:gameName})
-        }else{
-            savedScoreAndGameList=[];
-            gameName=`Game ${1}`;
-            savedScoreAndGameList.push({formattedScore,score,name:gameName});
+        if (savedScoreAndGameList && savedScoreAndGameList.length > 0) {
+            gameName = `Game ${savedScoreAndGameList.length + 1}`;
+            savedScoreAndGameList.push({ formattedScore, score, name: gameName })
+        } else {
+            savedScoreAndGameList = [];
+            gameName = `Game ${1}`;
+            savedScoreAndGameList.push({ formattedScore, score, name: gameName });
         }
-        
-        const newBestScore=savedScoreAndGameList && savedScoreAndGameList.length > 0 && 
-        savedScoreAndGameList.filter((scoreData)=> scoreData.score > score);
-        if(newBestScore.length === 0){
-            this.setState({gameName,newBestScore:true});
-        }else{
-            this.setState({gameName,newBestScore:false});
+
+        const newBestScore = savedScoreAndGameList && savedScoreAndGameList.length > 0 &&
+            savedScoreAndGameList.filter((scoreData) => scoreData.score > score);
+        if (newBestScore.length === 0) {
+            this.setState({ gameName, newBestScore: true });
+        } else {
+            this.setState({ gameName, newBestScore: false });
         }
-        window.sessionStorage.setItem('scoreBoard',JSON.stringify(savedScoreAndGameList));
+        window.sessionStorage.setItem('scoreBoard', JSON.stringify(savedScoreAndGameList));
     }
     //Create Markup to innerHtml
     createMarkup(html) {
         return {
-           __html: html   };
-    }; 
+            __html: html
+        };
+    };
+    //QUIT the game
+    quitGame = () => {
+        window.sessionStorage.clear();
+        this.props.screenToDisplay();
+    }
     render() {
         let { randomWord, timeLimit, inputWord, gameOverStatus, formattedScore,
-            gameLevel, gameName, newBestScore, coloredWord} = this.state;
+            gameLevel, gameName, newBestScore, coloredWord } = this.state;
         return (
             <div>
                 <Header score={formattedScore} gameLevel={gameLevel} />
@@ -229,7 +235,7 @@ class PlayGame extends Component {
                                 </h2>
                             }
                             {gameOverStatus &&
-                                <h2 className="quit-game">QUIT</h2>
+                                <h2 className="quit-game" onClick={() => this.quitGame()}>QUIT</h2>
                             }
                         </div>
                     </div>
