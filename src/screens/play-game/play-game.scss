@@ -1,0 +1,40 @@
+.play-game-container{
+    .stop-game{
+        cursor: pointer;
+        text-shadow: 0 0 16px rgba(0, 0, 0, 0.16);
+        font-family: Gotham;
+        font-size: 2.5rem;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.21;
+        letter-spacing: normal;
+        text-align: left;
+        color: #ff5155;
+        margin:25px 0;
+        img{
+            width: 3.2rem;
+            margin: 0;
+        }
+    }
+    h2{
+        text-shadow: 0 0 16px rgba(0, 0, 0, 0.16);
+        font-size: 72px;
+        font-weight: 500;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: 1.2;
+        letter-spacing: normal;
+        text-align: center;
+        color: #ffffff;
+        text-transform: uppercase;
+    }
+    .word-input{
+        height:60px;
+        opacity: 0.59;
+        border-radius: 5px;
+        box-shadow: 0 3px 16px 0 rgba(0, 0, 0, 0.8);
+        background-color: #ffffff;
+        color: #032228;
+    }
+}
