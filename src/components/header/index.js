@@ -21,7 +21,7 @@ class Header extends Component{
                 </div>
                 <div className="row">
                     <h2 className="col-md-5 game-level"><img src={gamePadIcon}  alt="game pad icon"/>LEVEL : {gameLevel}</h2>
-                    <h2 className="offset-md-3 col-md-3 score">Score: {score}</h2>
+                    <h2 className="offset-md-3 col-md-3 score">SCORE: {score}</h2>
                 </div>
             </div>
         )
