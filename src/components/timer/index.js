@@ -4,7 +4,8 @@ import './timer.scss';
 class Timer extends Component {
     state = {
         timeFraction: 283,
-        timerInterval: null
+        timerInterval: null,
+        timerKey: 1
     }
     componentDidMount() {
         const { timeLimit } = this.props;
@@ -18,6 +19,9 @@ class Timer extends Component {
 
     componentDidUpdate(prevProps) {
         if (prevProps.timeLimit !== this.props.timeLimit) {
+            let { timerKey } = this.state;
+            timerKey = timerKey += 1;
+            this.setState({ timerKey })
             this.updateTimer(this.props.timeLimit);
         }
     }
@@ -60,9 +64,9 @@ class Timer extends Component {
         return rawTimeFraction - (1 / timeLimit) * (1 - rawTimeFraction);
     }
     render() {
-        let { timeLeft, timeFraction } = this.state;
+        let { timeLeft, timeFraction, timerKey } = this.state;
         return (
-            <div className="timer-container">
+            <div key={timerKey} className="timer-container">
                 <svg className="svg-holder" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
                     <g className="svg-circle-container">
                         <circle className="svg-circle" cx="50" cy="50" r="45" />
