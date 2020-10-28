@@ -35,14 +35,14 @@ class StartGame extends Component {
             <div className="container start-game-container">
                 <div className="col-lg-6 offset-lg-3">
                     <div className="input-group mb-3">
-                        <input placeholder="TYPE YOUR NAME"
+                        <input data-testid="input-player-name" placeholder="TYPE YOUR NAME"
                             value={playerName}
                             onChange={(e) => this.handleUserInput('playerName', e.target.value)}
                             className="form-control" type="text" />
                     </div>
                     {playerNameErr && <p className="text-danger">{playerNameErr}</p>}
                     <div className="input-group mb-3">
-                        <select value={gameLevel} onChange={(e) => this.handleUserInput('gameLevel', e.target.value)}
+                        <select placeholder="Select Game Level" data-testid="select-game-level" value={gameLevel} onChange={(e) => this.handleUserInput('gameLevel', e.target.value)}
                             className="form-control" >
                             <option value="">DIFFICULTY LEVEL</option>
                             <option value="easy">Easy</option>
@@ -52,7 +52,7 @@ class StartGame extends Component {
                     </div>
                     {gameLevelErr && <p className="text-danger">{gameLevelErr}</p>}
                     <div className="text-center mt-3">
-                        <button className="btn btn-start" onClick={()=>this.startTheGame()}>START GAME</button>
+                        <button className="btn btn-start" data-testid="start-btn" onClick={()=>this.startTheGame()}>START GAME</button>
                     </div>
                 </div>
             </div>
