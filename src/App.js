@@ -8,6 +8,9 @@ class App extends Component {
   state = {
     displayGameScreen: false
   }
+  componentDidMount() {
+    this.screenToDisplay();
+  }
   screenToDisplay = () => {
     let playerName = window.sessionStorage.getItem('playerName');
     let gameLevel = window.sessionStorage.getItem('gameLevel');
