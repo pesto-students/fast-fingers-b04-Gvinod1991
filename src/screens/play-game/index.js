@@ -91,10 +91,17 @@ class PlayGame extends Component {
     handleWordInput = (value) => {
         let { wordsForGameLevel, randomWord, difficultyFactor, coloredWord } = this.state;
         //Coloring the word
-        let regExp = new RegExp(value);
-        coloredWord = randomWord.replace(regExp, `<span class="matched">${value}</span>`);
+        let regExp = new RegExp(value.toLowerCase());
+        if (regExp.test(randomWord)) {
+            coloredWord = randomWord.replace(regExp, `<span class="matched">${value}</span>`);
+        } else {
+            let unmatchedValue = randomWord.substring(0, value.length);
+            let regExp = new RegExp(unmatchedValue.toLowerCase());
+            coloredWord = randomWord.replace(regExp, `<span class="un-matched">${unmatchedValue}</span>`);
+        }
 
-        if (value === randomWord) {
+
+        if (value.toLowerCase() === randomWord) {
             //Increase difficulty factor by 0.01
             difficultyFactor = difficultyFactor += 0.01;
 
@@ -208,8 +215,8 @@ class PlayGame extends Component {
                                 {!coloredWord && <h2>{randomWord}</h2>}
                                 {coloredWord && <h2 dangerouslySetInnerHTML={this.createMarkup(coloredWord)}></h2>}
                                 <div className="input-group mb-3">
-                                    <input autoFocus className="form-control word-input" value={inputWord}
-                                        onChange={(e) => this.handleWordInput(e.target.value)} type="text" />
+                                    <input autoFocus className="form-control word-input" value={inputWord || ''}
+                                        onChange={(e) => this.handleWordInput(e.target.value, e.target.key)} type="text" />
                                 </div>
                             </div>
                             <div className="col-md-3"></div>
