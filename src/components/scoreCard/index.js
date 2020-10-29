@@ -12,7 +12,7 @@ class ScoreCard extends Component {
         this.setState({ scoreBoard, personalBest });
     }
     render() {
-        let { scoreBoard, personalBest } = this.state;
+        const { scoreBoard, personalBest } = this.state;
         return (
             <div className="score-card-container">
                 <h4>Score Board</h4>
