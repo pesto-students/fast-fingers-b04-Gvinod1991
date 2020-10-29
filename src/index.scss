@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background:url(./assets/images/game-background.svg);
+  background-repeat:repeat;
+  background-size: contain;
+  background-attachment: fixed;
+}
+body::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  opacity: 0.9;
+  background:linear-gradient(to bottom, #063c47, #000000);
+  
+}
+@media screen and (max-width:540px){
+  body::before{
+    height: 190%;
+  }
+}
+
+@font-face {
+  font-family: 'LaserCorpsGradient';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/lasercorpsgrad.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/GothamMedium.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Breamcatcher';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/breamcatcher.ttf') format('truetype'), /* Safari, Android, iOS */
+}
