@@ -28,7 +28,21 @@ body::before{
   }
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'LaserCorpsGradient';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/lasercorpsgrad.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Gotham';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/GothamMedium.ttf') format('truetype'), /* Safari, Android, iOS */
+}
+@font-face {
+  font-family: 'Breamcatcher';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/breamcatcher.ttf') format('truetype'), /* Safari, Android, iOS */
 }
