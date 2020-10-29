@@ -10,6 +10,7 @@ class StartGame extends Component {
         this.setState({[name]:value})
     }
     startTheGame =()=>{
+        this.setState({gameLevelErr:false,playerNameErr:false});
         let { playerName, gameLevel } = this.state;
         playerName= typeof(playerName)==='string' ? playerName : false;
         gameLevel= typeof(gameLevel)==='string' && gameLevel!=="" ? gameLevel : false;
