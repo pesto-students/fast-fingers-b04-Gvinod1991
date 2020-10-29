@@ -207,7 +207,7 @@ class PlayGame extends Component {
                 <div className="container-fluid play-game-container">
                     {!gameOverStatus &&
                         <div className="row">
-                            <div className="col-md-3">
+                            <div className="col-md-3 hidden-xs">
                                 <ScoreCard />
                             </div>
                             <div className="offset-md-2 col-md-4">
@@ -224,7 +224,7 @@ class PlayGame extends Component {
                     }
                     {gameOverStatus &&
                         <div className="row game-over-container">
-                            <div className="offset-md-4 col-md-4">
+                            <div className="offset-md-4 col-md-5">
                                 <h2>SCORE : {gameName}</h2>
                                 <h4>{formattedScore}</h4>
                                 {newBestScore && <p>New High Score</p>}
@@ -235,7 +235,7 @@ class PlayGame extends Component {
                         </div>
                     }
                     <div className="row">
-                        <div className="col-md-3 col-12">
+                        <div className="col-md-4 col-12">
                             {!gameOverStatus &&
                                 <h2 className="stop-game" onClick={() => this.gameOver()}>
                                     <img src={crossIcon} alt="player icon" /> STOP GAME
