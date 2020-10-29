@@ -3,6 +3,9 @@
     width:250px;
     height:250px;
     left: 18%;
+    @media screen and (max-width:540px) {
+        left: 12%;
+    }
     .svg-circle-container{
         stroke: none;
         fill:none;
